@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+ 
+
+int main() {
+	setlocale(0, "");
+
+	int  a;//выбор фигуры
+	int b;//выбор внутри фигуры
+	int MapSize;
+	char texture;
+
+	cout << "Геометрические фигуры"<<endl;
+	cout << "[1]Линия"<<endl;
+	cout << "[2]Квадрат"<<endl;
+	cout << "Выберите:";
+	cin >> a;
+
+	switch (a) {
+
+	case 1:
+		cout << "напишите размер: ";
+		cin >> MapSize;
+
+		cout << "Напишите текстуру:";
+		cin >> texture;
+
+		for (int x = 0; x < MapSize;x++) {
+			cout << texture;
+		}
+
+		break;
+	case 2:
+		cout << "[1]Заполненный" << endl;
+		cout << "[2]Пустой"<<endl;
+		cout << "Выберите: ";
+		cin >> b;
+
+		cout << "напишите размер: ";
+		cin >> MapSize;
+
+		cout << "Напишите текстуру:";
+		cin >> texture;
+
+		if (b == 1) {
+			for (int y = 0; y < MapSize; y++) {
+
+				for (int x = 0; x < MapSize; x++) {
+					cout << texture;
+				}
+				cout << endl;
+			}
+		}
+
+		else(b == 2); {
+			for (int y = 0; y < MapSize; y++) {
+				for (int x=0; x < MapSize; x++) {
+					if (x==0||y==0||y== MapSize-1||x== MapSize-1) {
+						cout << texture;
+					}
+					else {
+						cout << " ";
+					}
+				}
+				cout <<endl;
+			}
+		}
+		break;
+	}
+
+
+	int _; cin>> _;
+}

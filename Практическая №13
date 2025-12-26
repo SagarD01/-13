@@ -1,23 +1,28 @@
 #include <iostream>
 using namespace std;
- 
+
 
 int main() {
+
 	setlocale(0, "");
 
 	int  a;//выбор фигуры
-	int b;//выбор внутри фигуры
+	int b;//выбор внутриности фигуры
 	int MapSize;
 	char texture;
+	int MapSize2;
 
-	cout << "Геометрические фигуры"<<endl;
-	cout << "[1]Линия"<<endl;
-	cout << "[2]Квадрат"<<endl;
+	cout << "Геометрические фигуры" << endl;
+	cout << "[1]Линия" << endl;
+	cout << "[2]Квадрат" << endl;
+	cout << "[3]Прямоугольник" << endl;
+	cout << "[4]Треугольник" << endl;
 	cout << "Выберите:";
 	cin >> a;
 
 	switch (a) {
-
+	
+		//линия
 	case 1:
 		cout << "напишите размер: ";
 		cin >> MapSize;
@@ -25,14 +30,17 @@ int main() {
 		cout << "Напишите текстуру:";
 		cin >> texture;
 
-		for (int x = 0; x < MapSize;x++) {
+		system("cls");
+
+		for (int x = 0; x < MapSize; x++) {
 			cout << texture;
 		}
-
 		break;
+
+		//квадрат
 	case 2:
 		cout << "[1]Заполненный" << endl;
-		cout << "[2]Пустой"<<endl;
+		cout << "[2]Пустой" << endl;
 		cout << "Выберите: ";
 		cin >> b;
 
@@ -42,6 +50,9 @@ int main() {
 		cout << "Напишите текстуру:";
 		cin >> texture;
 
+		system("cls");
+
+		//Заполненый
 		if (b == 1) {
 			for (int y = 0; y < MapSize; y++) {
 
@@ -50,24 +61,126 @@ int main() {
 				}
 				cout << endl;
 			}
+			return 0;
 		}
-
+		//Пустой
 		else(b == 2); {
 			for (int y = 0; y < MapSize; y++) {
-				for (int x=0; x < MapSize; x++) {
-					if (x==0||y==0||y== MapSize-1||x== MapSize-1) {
+				for (int x = 0; x < MapSize; x++) {
+					if (x == 0 || y == 0 || y == MapSize - 1 || x == MapSize - 1) {
 						cout << texture;
 					}
 					else {
 						cout << " ";
 					}
 				}
-				cout <<endl;
+				cout << endl;
+			}
+		}
+		break;
+
+
+		//прямоугольник
+	case 3:
+		cout << "[1]Заполненый" << endl;
+		cout << "[2]Пустой" << endl;
+		cout << "Выберите: ";
+		cin >> b;
+
+
+		cout << "Введите длину: ";
+		cin >> MapSize;
+
+		cout << "Введите высоту: ";
+		cin >> MapSize2;
+
+		cout << "Введите текстуру: ";
+		cin >> texture;
+
+
+		system("cls");
+
+
+		//заполненый
+		if (b == 1) {
+
+			for (int y=0; y < MapSize2; y++) {
+				for (int x=0; x < MapSize; x++) {
+					cout << texture;
+				}
+				cout << endl;
+			}
+			return 0;
+		}
+
+		//пустой
+		else(b == 2); {
+			for (int y = 0; y < MapSize2; y++) {
+				for (int x = 0; x < MapSize; x++) {
+					if (x == 0 || y==0 || y==MapSize2-1 || x==MapSize-1 ) {
+						cout << texture;
+					}
+					else {
+						cout << ".";
+					}
+				}
+				cout << endl;
+			}
+		}
+		break;
+	
+		//Треугольник
+	case 4:
+
+
+		cout << "[1]Заполненный" << endl;
+		cout << "[2]Пустой" << endl;
+		cout << "Выберите: ";
+		cin >> b;
+
+		cout << "напишите размер: ";
+		cin >> MapSize;
+
+		cout << "Напишите текстуру:";
+		cin >> texture;
+
+		system("cls");
+
+
+		//заполненый
+		if (b == 1) {
+			for (int y = 1; y < MapSize; y++) {
+				
+				for (int x = 0; x < MapSize - y; x++) {
+					cout << " ";
+				}
+
+				for (int x = 1; x <= y; x++) {
+					cout << texture << " ";
+				}
+				cout << endl;
+			}
+			return 0;
+		}
+
+		//Пустой
+		else(b == 2); {
+
+			for (int y = 0; y < MapSize; y++) {
+				for (int x = 0; x < MapSize; x++) {
+					if (x== MapSize/2) {
+						cout << texture << " ";
+					}
+					else {
+						cout << " .";
+					}
+				}
+				cout << endl;
 			}
 		}
 		break;
 	}
 
 
-	int _; cin>> _;
+	int _; cin >> _;
 }

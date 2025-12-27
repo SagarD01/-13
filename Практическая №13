@@ -18,7 +18,7 @@ int main() {
 	cout << "[3]Прямоугольник" << endl;
 	cout << "[4]Треугольник" << endl;
 	cout << "[5]Решетка" << endl;
-	cout << "[6]Кресткик" << endl;
+	cout << "[6]Крестик" << endl;
 	cout << "[7]Плюс" << endl;
 	cout << "Выберите:";
 	cin >> a;
@@ -66,7 +66,7 @@ int main() {
 			for (int y = 0; y < MapSize; y++) {
 
 				for (int x = 0; x < MapSize; x++) {
-					cout << texture;
+					cout << texture<<" ";
 				}
 				cout << endl;
 			}
@@ -77,7 +77,7 @@ int main() {
 			for (int y = 0; y < MapSize; y++) {
 				for (int x = 0; x < MapSize; x++) {
 					if (x == 0 || y == 0 || y == MapSize - 1 || x == MapSize - 1) {
-						cout << texture;
+						cout << texture<<" ";
 					}
 					else {
 						cout << " ";
@@ -118,7 +118,7 @@ int main() {
 
 			for (int y = 0; y < MapSize2; y++) {
 				for (int x = 0; x < MapSize; x++) {
-					cout << texture;
+					cout << texture<<" ";
 				}
 				cout << endl;
 			}
@@ -130,10 +130,10 @@ int main() {
 			for (int y = 0; y < MapSize2; y++) {
 				for (int x = 0; x < MapSize; x++) {
 					if (x == 0 || y == 0 || y == MapSize2 - 1 || x == MapSize - 1) {
-						cout << texture;
+						cout << texture<<" ";
 					}
 					else {
-						cout << ".";
+						cout << ". ";
 					}
 				}
 				cout << endl;
@@ -219,8 +219,11 @@ int main() {
 		}
 
 		break;
+		
+		//Крестик
 	case 6:
 		system("cls");
+		
 		cout << "Размер: ";
 		cin >> MapSize;
 
@@ -231,7 +234,7 @@ int main() {
 
 		for (int y = 0; y < MapSize; y++) {
 			for (int x = 0; x < MapSize;x++) {
-				if (x == MapSize-1 && y==MapSize-1 && y== ) {
+				if (x == y || y == MapSize - x-1) {
 					cout << texture << " ";
 				}
 				else {
@@ -242,8 +245,33 @@ int main() {
 		}
 
 		break;
-	}
+		
+		//Плюс
+	case 7:
+	    system("cls");
+	    
+		cout << "Размер: ";
+		cin >> MapSize;
 
+		cout << "Тексура: ";
+		cin >> texture;
+		
+		system("cls");
+		
+	    for(int y=0; y<MapSize; y++){
+	        for(int x=0; x<MapSize; x++){
+	            if(x==MapSize/2 || y==MapSize/2){
+	                cout<<texture<<" ";
+	            }
+	            else{
+	                cout<<". ";
+	            }
+	        }
+	        cout<<endl;
+	    }
+	    break;
+		
+	}
 
 	int _; cin >> _;
 }

@@ -12,6 +12,7 @@ int main() {
 	char texture;
 	int MapSize2;
 	bool f = false;
+	int kol = 0;
 
 	cout << "Геометрические фигуры" << endl;
 	cout << "[1]Линия" << endl;
@@ -23,6 +24,7 @@ int main() {
 	cout << "[7]Плюс" << endl;
 	cout << "[8]Ромб" << endl;
 	cout << "[9]Змейка" << endl;
+	cout << "[10]Рекурсивный квадрат" << endl;
 	cout << "Выберите:";
 	cin >> a;
 
@@ -285,7 +287,7 @@ int main() {
 
 		for (int y = 0; y < MapSize; y++) {
 			for (int x = 0; x < MapSize; x++) {
-				if (x == y + MapSize / 2 || x == y - MapSize / 2 || y == MapSize/2 + MapSize - x -1 || x == MapSize / 2 - y  ) {
+				if (x == y + MapSize / 2 || x == y - MapSize / 2 || y == MapSize / 2 + MapSize - x - 1 || x == MapSize / 2 - y) {
 					cout << texture << " ";
 				}
 				else {
@@ -308,11 +310,11 @@ int main() {
 
 		for (int y = 0; y < MapSize; y++) {
 			for (int x = 0; x < MapSize; x++) {
-				if ( y % 2 ==0 ) {
+				if (y % 2 == 0) {
 					cout << texture << " ";
 				}
 
-				else if(f==false && x==MapSize-1){
+				else if (f == false && x == MapSize - 1) {
 					cout << texture << " ";
 
 				}
@@ -327,8 +329,30 @@ int main() {
 					f = !f;
 				}
 			}
+		}
+			cout << endl;
+
+	case 10://рекурс. квадрат
+		cout << "Размер: ";
+		cin >> MapSize;
+
+		cout << "Тексура: ";
+		cin >> texture;
+
+		
+		for (int y = 0; y < MapSize; y++) {
+			for (int x = 0; x < MapSize; x++) {
+				if (y == 0 ) {
+					cout << texture << " ";
+				}
+				else {
+					cout << " .";
+				}
+			}
 			cout << endl;
 		}
+		break;
+		
 	}
 
 	int _; cin >> _;
